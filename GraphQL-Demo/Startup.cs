@@ -5,6 +5,13 @@ using System.Threading.Tasks;
 using GraphiQl;
 using GraphQL;
 using GraphQL.Types;
+
+using GraphQL.Server;
+
+using GraphQL_Demo.Models;
+using GraphQL_Demo.Repository;
+using GraphQL_Demo.Schemas;
+using GraphQL_Demo.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,17 +26,17 @@ namespace GraphQL_Demo
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddScoped<IDependencyResolver>(
-            //    _ => new FuncDependencyResolver(_.GetRequiredService)
-            //    );
-            //services.AddScoped<IDocumentExecuter, DocumentExecuter>();
-            //services.AddScoped<IDocumentWriter, DocumentWriter>();
-            //services.AddScoped<AuthorService>();
-            //services.AddScoped<AuthorRepository>();
-            //services.AddScoped<AuthorQuery>();
-            //services.AddScoped<AuthorType>();
-            //services.AddScoped<BlogPostType>();
-            //services.AddScoped<ISchema, GraphQLDemoSchema>();
+            services.AddScoped<IDependencyResolver>(
+                _ => new FuncDependencyResolver(_.GetRequiredService)
+                );
+            services.AddScoped<IDocumentExecuter, DocumentExecuter>();
+            services.AddScoped<IDocumentWriter, DocumentWriter>();
+            services.AddScoped<AuthorService>();
+            services.AddScoped<AuthorRepository>();
+            services.AddScoped<AuthorQuery>();
+            services.AddScoped<AuthorType>();
+            services.AddScoped<BlogPostType>();
+            services.AddScoped<ISchema, GraphQLDemoSchema>();
             services.AddControllers();
         }
 

@@ -1,5 +1,6 @@
 ﻿using GraphQL;
 using GraphQL.Types;
+using GraphQL_Demo.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
