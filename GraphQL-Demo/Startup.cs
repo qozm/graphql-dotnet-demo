@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GraphQL.MicrosoftDI;
 
 namespace GraphQL_Demo
 {
@@ -26,17 +27,24 @@ namespace GraphQL_Demo
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IDependencyResolver>(
-                _ => new FuncDependencyResolver(_.GetRequiredService)
-                );
-            services.AddScoped<IDocumentExecuter, DocumentExecuter>();
-            services.AddScoped<IDocumentWriter, DocumentWriter>();
-            services.AddScoped<AuthorService>();
-            services.AddScoped<AuthorRepository>();
-            services.AddScoped<AuthorQuery>();
-            services.AddScoped<AuthorType>();
-            services.AddScoped<BlogPostType>();
-            services.AddScoped<ISchema, GraphQLDemoSchema>();
+
+            // https://graphql-dotnet.github.io/docs/getting-started/dependency-injection
+
+
+            services.AddSingleton<ISchema, GraphQLDemoSchema>(services => new GraphQLDemoSchema(new SelfActivatingServiceProvider(services)));
+
+
+            //services.AddScoped<IDependencyResolver>(
+            //    _ => new FuncDependencyResolver(_.GetRequiredService)
+            //    );
+            //services.AddScoped<IDocumentExecuter, DocumentExecuter>();
+            //services.AddScoped<IDocumentWriter, DocumentWriter>();
+            //services.AddScoped<AuthorService>();
+            //services.AddScoped<AuthorRepository>();
+            //services.AddScoped<AuthorQuery>();
+            //services.AddScoped<AuthorType>();
+            //services.AddScoped<BlogPostType>();
+            //services.AddScoped<ISchema, GraphQLDemoSchema>();
             services.AddControllers();
         }
 

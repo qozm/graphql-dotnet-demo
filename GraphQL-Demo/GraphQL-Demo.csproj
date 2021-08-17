@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="graphiql" Version="2.0.0" />
     <PackageReference Include="GraphQL" Version="4.5.0" />
+    <PackageReference Include="GraphQL.MicrosoftDI" Version="4.5.0" />
     <PackageReference Include="GraphQL.Server.Core" Version="5.0.2" />
     <PackageReference Include="System.Web.Http.Common" Version="4.0.20126.16343" />
   </ItemGroup>
