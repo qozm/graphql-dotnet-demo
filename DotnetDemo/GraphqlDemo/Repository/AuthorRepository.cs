@@ -42,10 +42,10 @@ namespace GraphqlDemo.Repository
                 Author = author1
             };
 
-            posts.Add(csharp);
-            posts.Add(java);
-            authors.Add(author1);
-            authors.Add(author2);
+            //posts.Add(csharp);
+            //posts.Add(java);
+            //authors.Add(author1);
+            //authors.Add(author2);
         }
 
         public List<Author> GetAllAuthors()
