@@ -2,12 +2,13 @@ using System.Threading.Tasks;
 using GraphQL;
 using GraphQL.SystemTextJson;
 using GraphQL.Types;
-using GraphqlDemo.Models.DataTransferObject;
+using GraphqlDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GraphqlDemo.Controllers
 {
     [Route("/graphql")]
+    [ApiController]
     public class GraphQLController : Controller
     {
         private readonly ISchema _schema;
@@ -20,8 +21,9 @@ namespace GraphqlDemo.Controllers
             _executer = executer;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] GraphQLQueryDTO query)
+
+        //[HttpPost]
+        public async Task<IActionResult> Post([FromBody] GraphQLQuery query)
         {
             var result = await _executer.ExecuteAsync(_ =>
             {
@@ -29,6 +31,7 @@ namespace GraphqlDemo.Controllers
                 _.Query = query.Query;
                 _.Inputs = query.Variables?.ToInputs();
             });
+
             if (result.Errors?.Count > 0)
             {
                 return BadRequest();
@@ -37,4 +40,6 @@ namespace GraphqlDemo.Controllers
             return Ok(result.Data);
         }
     }
+
+
 }
