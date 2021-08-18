@@ -34,11 +34,11 @@ namespace GraphqlDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddSingleton<ISchema, AuthorSchema>(
-                services =>
+                    services =>
                     new AuthorSchema(new SelfActivatingServiceProvider(services))
             );
-
 
             //services.AddScoped<IDependencyResolver>(_ => new FuncDependencyResolver(_.GetRequiredService));
             //services.AddScoped<IServiceProvider>(_ => new IServiceProvider(_.GetRequiredService));
@@ -54,6 +54,8 @@ namespace GraphqlDemo
             services.AddScoped<BlogPostType>();
             services.AddScoped<ISchema, AuthorSchema>();
             services.AddScoped<GraphQLController>();
+
+
 
             services.AddControllers();
         }
