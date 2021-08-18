@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
 using GraphQL;
+using GraphQL.SystemTextJson;
 using GraphQL.Types;
+using GraphqlDemo.Models.DataTransferObject;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GraphqlDemo.Controllers
