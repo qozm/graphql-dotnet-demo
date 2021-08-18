@@ -18,12 +18,14 @@ namespace GraphqlDemo.Repository
                 FirstName = "Joydip",
                 LastName = "Kanjilal"
             };
+
             Author author2 = new Author
             {
                 Id = 2,
                 FirstName = "Steve",
                 LastName = "Smith"
             };
+
             BlogPost csharp = new BlogPost
             {
                 Id = 1,
@@ -31,6 +33,7 @@ namespace GraphqlDemo.Repository
                 Content = "This is a series of articles on C#.",
                 Author = author1
             };
+
             BlogPost java = new BlogPost
             {
                 Id = 2,
@@ -38,6 +41,7 @@ namespace GraphqlDemo.Repository
                 Content = "This is a series of articles on Java",
                 Author = author1
             };
+
             posts.Add(csharp);
             posts.Add(java);
             authors.Add(author1);

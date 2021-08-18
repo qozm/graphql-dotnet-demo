@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GraphqlDemo.Controllers
 {
-    [Route("graphql")]
+    [Route("/graphql")]
     public class GraphQLController : Controller
     {
         private readonly ISchema _schema;
