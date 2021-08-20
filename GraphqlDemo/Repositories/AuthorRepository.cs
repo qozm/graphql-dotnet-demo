@@ -1,6 +1,6 @@
+using GraphqlDemo.Ef.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using GraphqlDemo.Models;
 
 namespace GraphqlDemo.Repositories
 {

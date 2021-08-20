@@ -1,5 +1,5 @@
 using GraphQL.Types;
-using GraphqlDemo.Models;
+using GraphqlDemo.Ef.Entities;
 
 namespace GraphqlDemo.GraphQL.Types
 {

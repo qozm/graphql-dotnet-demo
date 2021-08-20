@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using GraphqlDemo.Models;
+using GraphqlDemo.Ef.Entities;
 using GraphqlDemo.Repositories;
 
 namespace GraphqlDemo.Services
