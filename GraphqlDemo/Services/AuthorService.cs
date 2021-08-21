@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using GraphqlDemo.Ef.Entities;
 using GraphqlDemo.Repositories;
 
@@ -14,19 +15,20 @@ namespace GraphqlDemo.Services
             _authorRepository = authorRepository;
         }
 
-        public List<Author> GetAllAuthors()
+        public async Task<List<Author>> GetAllAuthors()
         {
-            return _authorRepository.GetAllAuthors();
+            return await _authorRepository.GetAllAuthors();
         }
 
+        //public async Task<Author> GetAuthorById(int id)
         public Author GetAuthorById(int id)
         {
             return _authorRepository.GetAuthorById(id);
         }
 
-        public List<Post> GetPostsByAuthor(int id)
+        public async Task<List<Post>> GetPostsByAuthor(int id)
         {
-            return _authorRepository.GetPostsByAuthor(id);
+            return await _authorRepository.GetPostsByAuthor(id);
         }
     }
 }

@@ -1,6 +1,7 @@
 using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;
 using GraphQL.Types;
+using GraphqlDemo.Ef;
 using GraphqlDemo.GraphQL.Schemas;
 using GraphqlDemo.GraphQL.Types;
 using GraphqlDemo.Repositories;
@@ -9,8 +10,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace GraphqlDemo
 {
@@ -42,6 +45,52 @@ namespace GraphqlDemo
 
             services.AddControllers();
             services.AddHttpContextAccessor();
+
+            //services.AddPooledDbContextFactory<WikiContext>(options =>
+            //{
+            //    options.EnableSensitiveDataLogging(true);
+            //    options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()));
+            //});
+            //services.AddDbContext<WikiContext>(options =>
+            //{
+            //    //options.UseSqlite(Configuration.GetConnectionString("DefaultSQLiteConnection")
+            //    options.UseSqlite(@"Data Source=Data/wiki.db");
+            //});
+            //services.AddEntityFrameworkSqlite().AddDbContext<WikiContext>();
+            //services.AddDbContext<WikiContext>(options =>
+            //{
+            //    options.UseSqlite(@"Data Source=Data/wiki.db");
+            //},
+            //contextLifetime: ServiceLifetime.Transient,
+            //optionsLifetime: ServiceLifetime.Singleton
+            //);
+
+            //services.AddPooledDbContextFactory<WikiContext>(options =>
+            //{
+            //    //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            //    options.UseSqlite(@"Data Source=Data/wiki.db")
+            //    .EnableServiceProviderCaching(false);
+            //}, poolSize: 32);
+
+            //services.AddDbContext<WikiContext>(options =>
+            //{
+            //    options.UseSqlite(@"Data Source=Data/wiki.db");
+            //}
+            //,contextLifetime: ServiceLifetime.Scoped
+            //,optionsLifetime: ServiceLifetime.Singleton
+            //);
+
+            //services.AddPooledDbContextFactory<WikiContext>(options =>
+            //{
+            //    options.UseSqlite(@"Data Source=Data/wiki.db");
+            //});
+
+            //services.AddEntityFrameworkSqlite().AddDbContext<WikiContext>();
+
+            services.AddDbContext<WikiContext>(options =>
+            {
+                options.UseSqlite(@"Data Source=Data/wiki.db");
+            });
 
             services.Configure<KestrelServerOptions>(options => { options.AllowSynchronousIO = true; });
         }
