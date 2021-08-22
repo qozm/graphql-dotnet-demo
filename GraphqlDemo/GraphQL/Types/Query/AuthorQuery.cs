@@ -25,7 +25,7 @@ namespace GraphqlDemo.GraphQL.Types.Query
                 resolve: context =>
                 {
                     id = context.GetArgument<string>("id");
-                    return _authorService.GetAuthorById(id);
+                    return _authorService.GetAuthorByIdAsync(id);
                 }
             );
 

@@ -9,8 +9,7 @@ namespace GraphqlDemo.Services
     {
         private readonly AuthorRepository _authorRepository;
 
-        public AuthorService(AuthorRepository
-            authorRepository)
+        public AuthorService(AuthorRepository authorRepository)
         {
             _authorRepository = authorRepository;
         }
@@ -21,9 +20,9 @@ namespace GraphqlDemo.Services
         }
 
         //public async Task<Author> GetAuthorById(int id)
-        public Author GetAuthorById(string id)
+        public async Task<Author> GetAuthorByIdAsync(string id)
         {
-            return _authorRepository.GetAuthorById(id);
+            return await _authorRepository.GetAuthorByIdAsync(id);
         }
 
         public async Task<List<Post>> GetPostsByAuthorAsync(string id)

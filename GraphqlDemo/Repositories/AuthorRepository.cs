@@ -35,9 +35,9 @@ namespace GraphqlDemo.Repositories
             //}
         }
 
-        public Author GetAuthorById(string id)
+        public async Task<Author> GetAuthorByIdAsync(string id)
         {
-            return _wikiContext.Authors.Where(_ => _.Id == id).FirstOrDefault();
+            return await _wikiContext.Authors.Where(_ => _.Id == id).FirstOrDefaultAsync();
 
             //using (var wikiDbContext = _contextFactory.CreateDbContext())
             //{

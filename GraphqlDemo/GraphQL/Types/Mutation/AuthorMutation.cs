@@ -15,23 +15,10 @@ namespace GraphqlDemo.GraphQL.Types.Mutation
         {
             Field<AuthorType>(
                 name: "CreateAuthor",
-                arguments: new QueryArguments(new QueryArgument<AuthorInputType> { Name = "author" }),
-                 //resolve: context =>
-                 //{
-                 //    var author = context.GetArgument<Author>("author");
-                 //    author.Id = Guid.NewGuid().ToString();
-                 //    return _authorService.CreateAuthorAsync(author);
-                 //});
-
-                 resolve: context =>
-                 {
-                     var author = context.GetArgument<Author>("author");
-                     return CreateAuthorAsync(author);
-                 });
-
+                arguments: new QueryArguments(new QueryArgument<InputAuthorType> { Name = "author" }),
+                resolve: context => CreateAuthorAsync(context.GetArgument<Author>("author")));
         }
 
-        //public async Task<Author> CreateAuthorAsync(AuthorInput authorInput)
         public async Task<Author> CreateAuthorAsync(Author author)
         {
             author.Id = Guid.NewGuid().ToString();

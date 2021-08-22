@@ -43,6 +43,9 @@ namespace GraphqlDemo
             services.AddScoped<AuthorService>();
             services.AddScoped<AuthorRepository>();
 
+            services.AddScoped<PostService>();
+            services.AddScoped<PostRepository>();
+
             #endregion
 
             services.AddControllers();

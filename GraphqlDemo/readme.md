@@ -33,3 +33,15 @@ mutation {
   }
 }
 ```
+
+
+```
+# ≤‚ ‘Œ¥Õ®π˝£¨‘›¥Ê
+mutation {
+  createPost(post: { title:"Groovy-2", content:"This is a series of articles on Groovy-2."}) {
+    id
+		title
+		content
+  }
+}
+```

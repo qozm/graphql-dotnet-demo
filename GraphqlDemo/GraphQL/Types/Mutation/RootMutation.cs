@@ -13,11 +13,17 @@ namespace GraphqlDemo.GraphQL.Types.Mutation
     public partial class RootMutation : ObjectGraphType
     {
         private readonly AuthorService _authorService;
+        private readonly PostService _postService;
 
-        public RootMutation(AuthorService authorService)
+        public RootMutation(
+            AuthorService authorService,
+            PostService postService)
         {
             _authorService = authorService;
+            _postService = postService;
+
             SetAuthorMutation();
+            SetPostMutation();
         }
 
     }
