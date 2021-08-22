@@ -31,7 +31,7 @@ namespace GraphqlDemo.GraphQL.Types.Mutation
               resolve: context =>
               {
                   var author = context.GetArgument<Author>("author");
-                  author.Id += 1;
+                  author.Id = Guid.NewGuid().ToString();
                   return authorService.CreateAuthorAsync(author);
               });
 

@@ -4,11 +4,11 @@ using GraphqlDemo.Services;
 
 namespace GraphqlDemo.GraphQL.Types.Query
 {
-    public partial class RootQuery 
+    public partial class RootQuery
     {
         public void SetAuthorQuery()
         {
-            int id = 0;
+            string id = string.Empty;
 
             Field<ListGraphType<AuthorType>>(
                 name: "authors",
@@ -24,7 +24,7 @@ namespace GraphqlDemo.GraphQL.Types.Query
                     }),
                 resolve: context =>
                 {
-                    id = context.GetArgument<int>("id");
+                    id = context.GetArgument<string>("id");
                     return _authorService.GetAuthorById(id);
                 }
             );

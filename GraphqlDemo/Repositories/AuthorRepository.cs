@@ -35,7 +35,7 @@ namespace GraphqlDemo.Repositories
             //}
         }
 
-        public Author GetAuthorById(int id)
+        public Author GetAuthorById(string id)
         {
             return _wikiContext.Authors.Where(_ => _.Id == id).FirstOrDefault();
 
@@ -47,7 +47,7 @@ namespace GraphqlDemo.Repositories
             //}
         }
 
-        public async Task<List<Post>> GetPostsByAuthor(int id)
+        public async Task<List<Post>> GetPostsByAuthor(string id)
         {
             return await _wikiContext.Posts.Where(_ => _.Author.Id == id).AsQueryable().ToListAsync();
             //using (var wikiDbContext = _contextFactory.CreateDbContext())

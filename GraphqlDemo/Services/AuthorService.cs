@@ -21,12 +21,12 @@ namespace GraphqlDemo.Services
         }
 
         //public async Task<Author> GetAuthorById(int id)
-        public Author GetAuthorById(int id)
+        public Author GetAuthorById(string id)
         {
             return _authorRepository.GetAuthorById(id);
         }
 
-        public async Task<List<Post>> GetPostsByAuthorAsync(int id)
+        public async Task<List<Post>> GetPostsByAuthorAsync(string id)
         {
             return await _authorRepository.GetPostsByAuthor(id);
         }

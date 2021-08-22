@@ -25,3 +25,14 @@ query {
     }
 }
 ```
+
+
+```
+mutation {
+  createAuthor(author: {id:"", firstName:"Steve", lastName:"Zhou"}) {
+    id
+		firstName
+		lastName
+  }
+}
+```

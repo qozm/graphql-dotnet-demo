@@ -15,20 +15,20 @@ namespace GraphqlDemo.GraphQL.InputTypes
 
     //public class AuthorInputType : InputObjectGraphType<AuthorInput>
     //public class AuthorInputType : InputObjectGraphType<Author>
-    public class AuthorInputType : InputObjectGraphType
+    public class AuthorInputType : InputObjectGraphType<Author>
     {
         public AuthorInputType()
         {
             //Name = nameof(Author);
-            Name = "AuthorInput";
-            Field<NonNullGraphType<IntGraphType>>("id");
-            Field<NonNullGraphType<StringGraphType>>("firstName");
-            Field<NonNullGraphType<StringGraphType>>("lastName");
-            //Name = "AuthorInputType";
-            //Description = "AuthorInputType";
-            //Field(_ => _.Id);
-            //Field(_ => _.FirstName);
-            //Field(_ => _.LastName);
+            //Name = "AuthorInput";
+            //Field<NonNullGraphType<IntGraphType>>("id");
+            //Field<NonNullGraphType<StringGraphType>>("firstName");
+            //Field<NonNullGraphType<StringGraphType>>("lastName");
+
+            Name = nameof(AuthorInputType);
+            Field(_ => _.Id);
+            Field(_ => _.FirstName);
+            Field(_ => _.LastName);
         }
     }
 }
