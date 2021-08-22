@@ -1,5 +1,6 @@
 using GraphqlDemo.Ef.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace GraphqlDemo.Ef
 {
