@@ -5,12 +5,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GraphqlDemo.GraphQL.Schemas
 {
-    public class AuthorSchema : Schema //,ISchema
+    public class RootSchema : Schema, ISchema
     {
-        public AuthorSchema(IServiceProvider provider)
+        public RootSchema(IServiceProvider provider)
             : base(provider)
         {
-            Query = provider.GetRequiredService<AuthorQuery>();
+            Query = provider.GetRequiredService<RootQuery>();
         }
     }
 }

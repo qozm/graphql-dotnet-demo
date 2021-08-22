@@ -25,14 +25,14 @@ namespace GraphqlDemo
         {
             #region GraphQL
 
-            services.AddScoped<AuthorQuery>();
-            services.AddScoped<ISchema, AuthorSchema>();
+            services.AddScoped<RootQuery>();
+            services.AddScoped<ISchema, RootSchema>();
 
             services.AddGraphQL(options => options.EnableMetrics = false)
                 .AddErrorInfoProvider(options => options.ExposeExceptionStackTrace = true)
                 .AddNewtonsoftJson()
                 .AddDataLoader()
-                .AddGraphTypes(typeof(AuthorSchema), ServiceLifetime.Scoped);
+                .AddGraphTypes(typeof(RootSchema), ServiceLifetime.Scoped);
 
             #endregion
 

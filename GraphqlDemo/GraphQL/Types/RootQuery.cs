@@ -4,9 +4,9 @@ using GraphqlDemo.Services;
 
 namespace GraphqlDemo.GraphQL.Types
 {
-    public class AuthorQuery : ObjectGraphType
+    public class RootQuery : ObjectGraphType
     {
-        public AuthorQuery(AuthorService authorService)
+        public RootQuery(AuthorService authorService)
         {
             int id = 0;
 
