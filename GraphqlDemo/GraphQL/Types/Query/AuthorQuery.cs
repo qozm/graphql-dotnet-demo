@@ -1,18 +1,18 @@
-using GraphQL;
+﻿using GraphQL;
 using GraphQL.Types;
 using GraphqlDemo.Services;
 
-namespace GraphqlDemo.GraphQL.Types
+namespace GraphqlDemo.GraphQL.Types.Query
 {
-    public class RootQuery : ObjectGraphType
+    public partial class RootQuery 
     {
-        public RootQuery(AuthorService authorService)
+        public void SetAuthorQuery()
         {
             int id = 0;
 
             Field<ListGraphType<AuthorType>>(
                 name: "authors",
-                resolve: context => { return authorService.GetAllAuthors(); }
+                resolve: context => { return _authorService.GetAllAuthors(); }
             );
 
             Field<AuthorType>(
@@ -25,7 +25,7 @@ namespace GraphqlDemo.GraphQL.Types
                 resolve: context =>
                 {
                     id = context.GetArgument<int>("id");
-                    return authorService.GetAuthorById(id);
+                    return _authorService.GetAuthorById(id);
                 }
             );
 
@@ -36,7 +36,7 @@ namespace GraphqlDemo.GraphQL.Types
                     {
                         Name = "id"
                     }),
-                resolve: context => { return authorService.GetPostsByAuthor(id); }
+                resolve: context => { return _authorService.GetPostsByAuthor(id); }
             );
         }
     }

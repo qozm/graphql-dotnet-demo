@@ -3,7 +3,7 @@ using GraphQL.Server.Ui.Playground;
 using GraphQL.Types;
 using GraphqlDemo.Ef;
 using GraphqlDemo.GraphQL.Schemas;
-using GraphqlDemo.GraphQL.Types;
+using GraphqlDemo.GraphQL.Types.Query;
 using GraphqlDemo.Repositories;
 using GraphqlDemo.Services;
 using Microsoft.AspNetCore.Builder;

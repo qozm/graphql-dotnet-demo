@@ -1,6 +1,7 @@
 using System;
 using GraphQL.Types;
-using GraphqlDemo.GraphQL.Types;
+using GraphqlDemo.GraphQL.Types.Query
+    ;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GraphqlDemo.GraphQL.Schemas
