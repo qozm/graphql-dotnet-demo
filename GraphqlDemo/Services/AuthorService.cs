@@ -15,7 +15,7 @@ namespace GraphqlDemo.Services
             _authorRepository = authorRepository;
         }
 
-        public async Task<List<Author>> GetAllAuthors()
+        public async Task<List<Author>> GetAllAuthorsAsync()
         {
             return await _authorRepository.GetAllAuthors();
         }
@@ -26,9 +26,15 @@ namespace GraphqlDemo.Services
             return _authorRepository.GetAuthorById(id);
         }
 
-        public async Task<List<Post>> GetPostsByAuthor(int id)
+        public async Task<List<Post>> GetPostsByAuthorAsync(int id)
         {
             return await _authorRepository.GetPostsByAuthor(id);
+        }
+
+        public async Task<Author> CreateAuthorAsync(Author author)
+        {
+            await _authorRepository.CreateAuthorAsync(author);
+            return author;
         }
     }
 }

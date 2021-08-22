@@ -12,7 +12,7 @@ namespace GraphqlDemo.GraphQL.Types.Query
 
             Field<ListGraphType<AuthorType>>(
                 name: "authors",
-                resolve: context => { return _authorService.GetAllAuthors(); }
+                resolve: context => { return _authorService.GetAllAuthorsAsync(); }
             );
 
             Field<AuthorType>(
@@ -36,7 +36,7 @@ namespace GraphqlDemo.GraphQL.Types.Query
                     {
                         Name = "id"
                     }),
-                resolve: context => { return _authorService.GetPostsByAuthor(id); }
+                resolve: context => { return _authorService.GetPostsByAuthorAsync(id); }
             );
         }
     }

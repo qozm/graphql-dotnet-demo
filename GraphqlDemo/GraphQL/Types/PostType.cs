@@ -7,7 +7,7 @@ namespace GraphqlDemo.GraphQL.Types
     {
         public PostType()
         {
-            Name = "Post";
+            Name = nameof(Post);
             Field(_ => _.Id, type: typeof(IdGraphType)).Description("The Id of the post.");
             Field(_ => _.Title).Description("The title of the post.");
             Field(_ => _.Content).Description("The content of the post.");

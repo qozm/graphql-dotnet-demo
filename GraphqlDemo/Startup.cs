@@ -3,6 +3,7 @@ using GraphQL.Server.Ui.Playground;
 using GraphQL.Types;
 using GraphqlDemo.Ef;
 using GraphqlDemo.GraphQL.Schemas;
+using GraphqlDemo.GraphQL.Types.Mutation;
 using GraphqlDemo.GraphQL.Types.Query;
 using GraphqlDemo.Repositories;
 using GraphqlDemo.Services;
@@ -26,6 +27,7 @@ namespace GraphqlDemo
             #region GraphQL
 
             services.AddScoped<RootQuery>();
+            services.AddScoped<RootMutation>();
             services.AddScoped<ISchema, RootSchema>();
 
             services.AddGraphQL(options => options.EnableMetrics = false)

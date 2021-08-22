@@ -55,5 +55,11 @@ namespace GraphqlDemo.Repositories
             //    return await wikiDbContext.Set<Post>().Where(_ => _.Author.Id == id).AsQueryable().ToListAsync();
             //}
         }
+
+        public async Task CreateAuthorAsync(Author author)
+        {
+            await _wikiContext.Authors.AddAsync(author);
+            await _wikiContext.SaveChangesAsync();
+        }
     }
 }
