@@ -3,8 +3,7 @@
 query {
   authors{
     id
-    firstName
-    lastName
+    name
   }
 }
 ```
@@ -12,10 +11,9 @@ query {
 
 ```
 query {
-  author (id: 1){
+  author (id: "10001"){
     id
-    firstName
-    lastName
+    name
   }
   posts
     {
@@ -29,10 +27,9 @@ query {
 
 ```
 mutation {
-  createAuthor(author: {id:"", firstName:"Steve", lastName:"Zhou"}) {
+  createAuthor(author: {id:"", name:"Hana"}) {
     id
-		firstName
-		lastName
+		name
   }
 }
 ```

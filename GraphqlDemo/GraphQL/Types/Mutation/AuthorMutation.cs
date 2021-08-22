@@ -11,22 +11,31 @@ namespace GraphqlDemo.GraphQL.Types.Mutation
 {
     public partial class RootMutation
     {
-        //public void SetAuthorMutation()
-        //{
-        //    Field<AuthorType>(
-        //        name: "CreateAuthor",
-        //        //arguments: new QueryArguments(new QueryArgument<NonNullGraphType<AuthorInputType>> { Name = "author" }),
-        //        arguments: new QueryArguments(new QueryArgument<AuthorInputType> { Name = "author" }),
-        //        //resolve: context => CreateAuthorAsync(context.GetArgument<AuthorInput>("author"))
-        //        resolve: context => CreateAuthorAsync(context.GetArgument<Author>("author"))
-        //       );
-        //}
+        public void SetAuthorMutation()
+        {
+            Field<AuthorType>(
+                name: "CreateAuthor",
+                arguments: new QueryArguments(new QueryArgument<AuthorInputType> { Name = "author" }),
+                 //resolve: context =>
+                 //{
+                 //    var author = context.GetArgument<Author>("author");
+                 //    author.Id = Guid.NewGuid().ToString();
+                 //    return _authorService.CreateAuthorAsync(author);
+                 //});
+
+                 resolve: context =>
+                 {
+                     var author = context.GetArgument<Author>("author");
+                     return CreateAuthorAsync(author);
+                 });
+
+        }
 
         //public async Task<Author> CreateAuthorAsync(AuthorInput authorInput)
-        //public async Task<Author> CreateAuthorAsync(Author author)
-        //{
-        //    author.Id += 1;
-        //    return await _authorService.CreateAuthorAsync(author);
-        //}
+        public async Task<Author> CreateAuthorAsync(Author author)
+        {
+            author.Id = Guid.NewGuid().ToString();
+            return await _authorService.CreateAuthorAsync(author);
+        }
     }
 }

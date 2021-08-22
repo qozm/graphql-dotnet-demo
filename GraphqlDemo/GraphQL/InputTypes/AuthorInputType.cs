@@ -27,8 +27,7 @@ namespace GraphqlDemo.GraphQL.InputTypes
 
             Name = nameof(AuthorInputType);
             Field(_ => _.Id);
-            Field(_ => _.FirstName);
-            Field(_ => _.LastName);
+            Field(_ => _.Name);
         }
     }
 }

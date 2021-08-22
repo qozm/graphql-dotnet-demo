@@ -18,7 +18,7 @@ namespace GraphqlDemo.GraphQL.Types.Query
             Field<AuthorType>(
                 name: "author",
                 arguments: new QueryArguments(
-                    new QueryArgument<IntGraphType>
+                    new QueryArgument<StringGraphType>
                     {
                         Name = "id"
                     }),
@@ -32,7 +32,7 @@ namespace GraphqlDemo.GraphQL.Types.Query
             Field<ListGraphType<PostType>>(
                 name: "posts",
                 arguments: new QueryArguments(
-                    new QueryArgument<IntGraphType>
+                    new QueryArgument<StringGraphType>
                     {
                         Name = "id"
                     }),

@@ -12,30 +12,12 @@ namespace GraphqlDemo.GraphQL.Types.Mutation
 {
     public partial class RootMutation : ObjectGraphType
     {
-        //private readonly AuthorService _authorService;
+        private readonly AuthorService _authorService;
 
         public RootMutation(AuthorService authorService)
         {
-            //Name = "RootMutation";
-            //Description = "RootMutation";
-
-            //_authorService = authorService;
-
-
-            Field<AuthorType>(
-               name: "CreateAuthor",
-              //arguments: new QueryArguments(new QueryArgument<NonNullGraphType<AuthorInputType>> { Name = "author" }),
-              //arguments: new QueryArguments(new QueryArgument<AuthorInputType> { Name = "author" }),
-              arguments: new QueryArguments(new QueryArgument<AuthorInputType> { Name = "author" }),
-              //resolve: context => CreateAuthorAsync(context.GetArgument<AuthorInput>("author"))
-              resolve: context =>
-              {
-                  var author = context.GetArgument<Author>("author");
-                  author.Id = Guid.NewGuid().ToString();
-                  return authorService.CreateAuthorAsync(author);
-              });
-
-            //SetAuthorMutation();
+            _authorService = authorService;
+            SetAuthorMutation();
         }
 
     }
